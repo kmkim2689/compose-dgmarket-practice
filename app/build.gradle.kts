@@ -68,7 +68,16 @@ dependencies {
     // navigation
     implementation("androidx.navigation:navigation-compose:2.6.0")
 
-    implementation ("androidx.lifecycle:lifecycle-viewmodel-compose:2.4.1")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.4.1")
     // Constraint Layout
-    implementation ("androidx.constraintlayout:constraintlayout-compose:1.0.1")
+    implementation("androidx.constraintlayout:constraintlayout-compose:1.0.1")
+
+    // glide
+    implementation("com.github.bumptech.glide:compose:1.0.0-alpha.1")
+
+    // coil
+    implementation("io.coil-kt:coil-compose:2.4.0")
+
+    // material
+    implementation ("androidx.compose.material3:material3:1.1.1")
 }
