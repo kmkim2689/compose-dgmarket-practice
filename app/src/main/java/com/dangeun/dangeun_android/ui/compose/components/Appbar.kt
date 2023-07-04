@@ -58,7 +58,8 @@ fun AppBar(location: String) {
                     Row(
                         modifier = Modifier
                             // ripple effect for Row
-                            .background(Color.Transparent).clickable {
+                            .clickable {
+
                             },
                         verticalAlignment = Alignment.CenterVertically,
 

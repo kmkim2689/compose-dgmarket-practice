@@ -20,6 +20,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.unit.dp
 import com.dangeun.dangeun_android.modules.sale.SaleItemRepository
 import com.dangeun.dangeun_android.modules.sale.ui.SaleCard
@@ -28,6 +29,9 @@ import com.dangeun.dangeun_android.ui.compose.components.FloatingActionButton
 
 @Composable
 fun HomeScreen() {
+
+    // swipe refresh : https://developer.android.com/reference/kotlin/androidx/compose/material/pullrefresh/package-summary
+
 
     // 스크롤에 따른 동작을 구현하기 위하여, lazyListState 사용
     // https://pluu.github.io/blog/android/io22/2022/06/19/io22-Lazy-layouts-in-Compose/
@@ -52,6 +56,7 @@ fun HomeScreen() {
             Box(
                 modifier = Modifier
                     .fillMaxSize()
+                    .padding(bottom = 80.dp)
             ) {
                 val saleItemRepository = SaleItemRepository()
                 val getAllData = saleItemRepository.getAllData()
@@ -76,7 +81,6 @@ fun HomeScreen() {
             isScrolled = isScrolled,
             icon = Icons.Default.Add,
             title = "글쓰기",
-
         ) {
             // click event
         }

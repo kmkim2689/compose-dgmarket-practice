@@ -18,6 +18,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.drawBehind
+import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
@@ -33,7 +35,17 @@ fun SaleCard(saleItem: SaleItem) {
         .clickable(
             interactionSource = remember { MutableInteractionSource() },
             indication = rememberRipple(bounded = true, color = Color.Gray)
-        ) { }) {
+        ) { }
+        .drawBehind {
+            // drawBehind : 아래 경계선 그리기
+            val borderSize = 0.2.dp.toPx()
+            drawLine(
+                color = Color.Gray,
+                start = Offset(52f, size.height),
+                end = Offset(size.width - 52, size.height),
+                strokeWidth = borderSize
+            )
+        }) {
 
         Row(
             modifier = Modifier
