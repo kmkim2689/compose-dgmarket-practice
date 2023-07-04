@@ -52,7 +52,7 @@ fun HomeScreen() {
             modifier = Modifier
                 .fillMaxSize()
         ) {
-            AppBar(location = "중산동")
+            AppBar(location = "중산동", menu = "home")
             Box(
                 modifier = Modifier
                     .fillMaxSize()

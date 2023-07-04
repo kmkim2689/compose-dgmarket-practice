@@ -74,3 +74,24 @@ fun ImageCard(
     }
 
 }
+
+@Composable
+fun ImageCardCommunity(
+    imageUrl: String,
+    contentDescription: String
+) {
+    Box(modifier = Modifier
+        .size(80.dp)
+        .clip(shape = RoundedCornerShape(10.dp))
+    ) {
+        Log.d("imageUrl", imageUrl)
+
+        // coil : https://github.com/coil-kt/coil#jetpack-compose
+        AsyncImage(
+            contentScale = ContentScale.FillBounds,
+            model = imageUrl,
+            contentDescription = contentDescription,
+        )
+    }
+
+}

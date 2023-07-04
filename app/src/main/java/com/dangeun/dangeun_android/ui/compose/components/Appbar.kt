@@ -14,7 +14,10 @@ import androidx.compose.material.icons.filled.KeyboardArrowDown
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.icons.filled.Notifications
 import androidx.compose.material.icons.filled.Search
+import androidx.compose.material.icons.outlined.AccountCircle
+import androidx.compose.material.icons.outlined.ExitToApp
 import androidx.compose.material.icons.outlined.Notifications
+import androidx.compose.material.icons.rounded.Person
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -37,7 +40,7 @@ import com.dangeun.dangeun_android.ui.theme.DangeunandroidTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun AppBar(location: String) {
+fun AppBar(location: String, menu: String) {
     Scaffold(
         modifier = Modifier
             .fillMaxWidth()
@@ -77,12 +80,36 @@ fun AppBar(location: String) {
 
                 },
                 actions = {
-                    IconButton(onClick = { /*TODO*/ }) {
-                        Icon(
-                            imageVector = Icons.Filled.Menu,
-                            contentDescription = "Menu",
-                        )
+                    when (menu) {
+                        "home" -> {
+                            IconButton(onClick = { /*TODO*/ }) {
+                                Icon(
+                                    imageVector = Icons.Filled.Menu,
+                                    contentDescription = "Menu",
+                                )
+                            }
+                        }
+                        "community" -> {
+                            IconButton(onClick = { /*TODO*/ }) {
+                                Icon(
+                                    imageVector = Icons.Outlined.AccountCircle,
+                                    contentDescription = "Menu",
+                                )
+                            }
+                        }
+                        "location" -> {
+                            IconButton(onClick = { /*TODO*/ }) {
+                                Icon(
+                                    imageVector = Icons.Outlined.ExitToApp,
+                                    contentDescription = "Menu",
+                                )
+                            }
+                        }
+                        else -> {
+                            // none
+                        }
                     }
+
                     IconButton(onClick = { /*TODO*/ }) {
                         Icon(
                             imageVector = Icons.Filled.Search,
@@ -103,10 +130,12 @@ fun AppBar(location: String) {
     }
 }
 
+
+
 @Preview(showBackground = true)
 @Composable
 fun ToolbarSamplePreview() {
     DangeunandroidTheme {
-        AppBar(location = "Toolbar Sample")
+        AppBar(location = "Toolbar Sample", menu = "home")
     }
 }
